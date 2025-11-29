@@ -108,7 +108,7 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Hercules')
         assert len(collector.favorites) == 1   
     
-    def test_delete_book_from_favorites_removes_book(self,collector):
+    def test_delete_book_from_favorites_removes_book_from_favorites(self,collector):
         
         collector.add_new_book('Hercules')
         collector.add_book_in_favorites('Hercules')
