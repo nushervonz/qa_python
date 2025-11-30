@@ -112,6 +112,10 @@ class TestBooksCollector:
         collector.add_book_in_favorites(name)
         assert name in collector.favorites
     
+    def test_add_book_in_favorites_book_not_in_collection_not_added_to_favorites(self,collector):
+        collector.add_book_in_favorites('Book Not in Collection')
+        assert len(collector.favorites) == 0
+    
     def test_add_book_in_favorites_add_same_book_two_times_does_not_duplicate_book_in_favorites(self,collector):
         collector.add_new_book('Hercules')
         collector.add_book_in_favorites('Hercules')
