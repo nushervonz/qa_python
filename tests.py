@@ -22,6 +22,11 @@ class TestBooksCollector:
         collector.add_new_book(long_name)
         assert len(collector.books_genre) == 0
     
+    def test_add_new_book_with_40_characters_is_added(self,collector):
+        long_valid_name = 'A' * 40
+        collector.add_new_book(long_valid_name)
+        assert long_valid_name in collector.books_genre
+    
     @pytest.mark.parametrize('name, genre, expected_result',[
         ('Hercules', 'Фантастика', {'Hercules': 'Фантастика'}),
         ('Sherlock', 'Детективы', {'Sherlock': 'Детективы'}),
