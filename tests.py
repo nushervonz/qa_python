@@ -128,3 +128,11 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Hercules')
         collector.delete_book_from_favorites('Hercules')
         assert 'Hercules' not in collector.favorites
+    
+    def test_delete_book_from_favorites_book_not_in_favorites_does_nothing(self,collector):
+        collector.add_new_book('Hercules')
+        collector.add_new_book('Sherlock')
+        collector.add_book_in_favorites('Hercules')
+        collector.add_book_in_favorites('Sherlock')
+        collector.delete_book_from_favorites('Book Not in Favorites')
+        assert len(collector.favorites) == 2
